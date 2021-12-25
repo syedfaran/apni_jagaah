@@ -21,6 +21,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     scheduleMicrotask(() {
       precacheImage(ImageString.place, context);
+      precacheImage(ImageString.apniJaggahSplash, context);
     });
     super.initState();
   }

@@ -6,4 +6,5 @@ class ImageString {
   static const ImageProvider roomOne = AssetImage('assets/roomOne.jpg');
   static const ImageProvider roomTwo = AssetImage('assets/roomTwo.jpg');
   static const ImageProvider roomThree = AssetImage('assets/roomThree.jpg');
+  static const ImageProvider apniJaggahSplash = AssetImage('assets/apni_jaggah.png');
 }

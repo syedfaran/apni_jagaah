@@ -9,9 +9,11 @@ class SimpleText extends StatelessWidget {
   final double horizontal;
   final double vertical;
   final TextDecoration? decoration;
+  final int? maxLine;
 
   const SimpleText(this.text,
       {Key? key,
+      this.maxLine,
       this.enumText,
       this.decoration,
       this.horizontal = 0.0,
@@ -28,6 +30,7 @@ class SimpleText extends StatelessWidget {
       child: Text(
         text,
         textAlign: textAlign,
+        maxLines: maxLine,
         style: Theme.of(context).textTheme.bodyText1!.copyWith(
             decoration: decoration,
             color: color,

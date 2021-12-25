@@ -23,7 +23,7 @@ class FindHomeState extends State<FindHome> {
   );
 
   Duration duration = const Duration(milliseconds: 500);
-  bool _toggle = true;
+  bool _toggle = false;
 
   void toggle() {
     setState(() {
@@ -52,7 +52,7 @@ class FindHomeState extends State<FindHome> {
                 height: 150,
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 decoration: const BoxDecoration(
-                  color: AppColor.whiteColor,
+                  color: AppColor.offWhiteColor,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -2,6 +2,7 @@ import 'package:apni_jagaah/constant/app_string.dart';
 import 'package:apni_jagaah/constant/image_string.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
+import 'package:apni_jagaah/presentation/widgets/text_field_border.dart';
 import 'package:flutter/material.dart';
 
 class SecondChildDetailPage extends StatelessWidget {
@@ -16,10 +17,7 @@ class SecondChildDetailPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(children: [
           SimpleText(value, enumText: EnumText.semiBold),
-          SimpleText(
-            option,
-            fontSize: 16,
-          ),
+          SimpleText(option, fontSize: 16),
         ]),
       );
 
@@ -36,10 +34,8 @@ class SecondChildDetailPage extends StatelessWidget {
               child: PageView.builder(
                 itemCount: imageList.length,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Image(
-                  fit: BoxFit.fill,
-                  image: imageList[index],
-                ),
+                itemBuilder: (context, index) =>
+                    Image(fit: BoxFit.fill, image: imageList[index]),
               ),
             ),
           ),
@@ -53,18 +49,13 @@ class SecondChildDetailPage extends StatelessWidget {
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    SimpleText(
-                      'Est\$926/mo',
-                      decoration: TextDecoration.underline,
-                      color: AppColor.grey,
-                      enumText: EnumText.regular,
-                      fontSize: 14,
-                    ),
-                    SimpleText(
-                      '124 WOODLAWN Ave\nJERSEY CITY, NJ 07305',
-                      fontSize: 16,
-                      vertical: 20,
-                    ),
+                    SimpleText('Est\$926/mo',
+                        decoration: TextDecoration.underline,
+                        color: AppColor.grey,
+                        enumText: EnumText.regular,
+                        fontSize: 14),
+                    SimpleText('124 WOODLAWN Ave\nJERSEY CITY, NJ 07305',
+                        fontSize: 16, vertical: 20),
                   ],
                 ),
                 trailing: FittedBox(
@@ -82,7 +73,7 @@ class SecondChildDetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  ListTile(title: SimpleText('Key Details', fontSize: 36)),
+                  ListTile(title: SimpleText('Key Details', fontSize: 30)),
                   _KeyDetail(option: AppString.category, value: 'Residential'),
                   _KeyDetail(option: AppString.type, value: 'Plot'),
                   _KeyDetail(option: AppString.features, value: 'Corner'),
@@ -97,9 +88,29 @@ class SecondChildDetailPage extends StatelessWidget {
               ),
             ),
           ])),
-          const SliverToBoxAdapter(
-            child: _InquiryForm(),
+          //about this home
+          SliverToBoxAdapter(
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.50),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SimpleText(AppString.aboutThisHome,
+                        fontSize: 30, vertical: 16, enumText: EnumText.light),
+                    const SimpleText(AppString.descriptionText,
+                        textAlign: TextAlign.justify, maxLine: 4),
+                    TextButton(
+                        onPressed: () {},
+                        child: const SimpleText(AppString.continueReading,
+                            fontSize: 24,color: AppColor.textButtonColor,)),
+                  ],
+                ),
+              ),
+            ),
           ),
+          //inquiryForm
+          const SliverToBoxAdapter(child: _InquiryForm()),
 
           //SliverChildBuilderDelegate(builder),
         ],
@@ -131,7 +142,7 @@ class _InquiryForm extends StatelessWidget {
     return Card(
       child: Column(
         children: [
-          const SimpleText(AppString.inquiryFrom, fontSize: 36),
+          const SimpleText(AppString.inquiryFrom, fontSize: 30),
           const TextFieldBorder(hintText: AppString.enterFullName),
           const TextFieldBorder(hintText: AppString.enterPhoneNumber),
           const TextFieldBorder(hintText: AppString.enterEmailAddress),
@@ -141,29 +152,6 @@ class _InquiryForm extends StatelessWidget {
               onPressed: () {}, child: const SimpleText(AppString.submit)),
           const SizedBox(height: 25),
         ],
-      ),
-    );
-  }
-}
-
-class TextFieldBorder extends StatelessWidget {
-  final String? hintText;
-
-  const TextFieldBorder({Key? key, this.hintText}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16),
-      child: TextField(
-        //enabled: false,
-        textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.teal)),
-          hintText: hintText,
-        ),
       ),
     );
   }

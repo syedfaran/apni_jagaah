@@ -11,14 +11,16 @@ class AppTheme {
 
 ThemeData _lightTheme = ThemeData(
   brightness: Brightness.light,
-  textTheme: GoogleFonts.robotoTextTheme(),
+  textTheme: GoogleFonts.libreFranklinTextTheme(),
   scaffoldBackgroundColor: AppColor.scaffoldBackgroundColor,
+
+  colorScheme: ColorScheme.fromSwatch(primarySwatch: AppColor.mainColor)
   // appBarTheme: const AppBarTheme(color: AppColor.transparent),
 );
 //robotoTextTheme
 //indieFlowerTextTheme
 ThemeData _darkTheme = ThemeData(
   brightness: Brightness.dark,
-  textTheme: GoogleFonts.robotoTextTheme(),
+  textTheme: GoogleFonts.indieFlowerTextTheme(),
   //appBarTheme: const AppBarTheme(color: AppColor.transparent),
 );

@@ -1,6 +1,8 @@
 import 'package:apni_jagaah/constant/route_string.dart';
 import 'package:apni_jagaah/presentation/page/home/find_home/detail_page.dart';
 import 'package:apni_jagaah/presentation/page/home/home.dart';
+import 'package:apni_jagaah/presentation/page/login_register/logIn_page.dart';
+import 'package:apni_jagaah/presentation/page/login_register/register_page.dart';
 import 'package:apni_jagaah/presentation/page/splash/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +16,13 @@ class RouteGenerator {
     switch (settings.name) {
       case RouteString.initialPage:
         //return MaterialPageRoute(builder: (_) => const SecondChildDetailPage());
-        return MaterialPageRoute(builder: (_) => const SplashPage());
+        return MaterialPageRoute(builder: (_) => const LogInPage());
       case RouteString.homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
       case RouteString.detailPage:
         return MaterialPageRoute(builder: (_)=>const SecondChildDetailPage());
+      case RouteString.register:
+        return MaterialPageRoute(builder: (_)=>const RegisterPage());
       default:
         return _errorRoute();
     }

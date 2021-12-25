@@ -38,6 +38,9 @@ class _HomePageState extends State<HomePage> {
   ];
 
   void _onItemTapped(int index) {
+    setState(() {
+
+    });
     indexNotifier.value = index;
   }
 
@@ -47,13 +50,13 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: ValueListenableBuilder<int>(
             valueListenable: indexNotifier,
-            builder: (context, value, child) =>
-                _widgetOptions.elementAt(value)),
+            builder: (context, value, child) => _widgetOptions.elementAt(value)),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
-              label: 'Home',
+              label: 'find Home',
+
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),
