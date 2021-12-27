@@ -33,63 +33,54 @@ class FindHomeState extends State<FindHome> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: [
-            AnimatedCrossFade(
-              duration: duration,
-              firstChild: const MapSample(),
-              secondChild: const SecondChild(),
-              crossFadeState: _toggle
-                  ? CrossFadeState.showFirst
-                  : CrossFadeState.showSecond,
+    return Stack(
+      children: [
+        AnimatedCrossFade(
+          duration: duration,
+          firstChild: const MapSample(),
+          secondChild: const SecondChild(),
+          crossFadeState: _toggle
+              ? CrossFadeState.showFirst
+              : CrossFadeState.showSecond,
+        ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            width: double.infinity,
+            height: 150,
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            decoration: const BoxDecoration(
+              color: AppColor.offWhiteColor,
             ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                width: double.infinity,
-                height: 150,
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                decoration: const BoxDecoration(
-                  color: AppColor.offWhiteColor,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            decoration: const InputDecoration(
-                                border: InputBorder.none,
-                                hintStyle: TextStyle(fontSize: 25),
-                                hintText: 'City,Address'),
-                            style: const TextStyle(fontSize: 25),
-                            onChanged: (val) {},
-                          ),
-                        ),
-                        TextButton(
-                            onPressed: toggle,
-                            child: SimpleText(_toggle ? 'List' : 'Map')),
-                      ],
+                    Expanded(
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(fontSize: 25),
+                            hintText: 'City,Address'),
+                        style: const TextStyle(fontSize: 25),
+                        onChanged: (val) {},
+                      ),
                     ),
-                    const Divider(thickness: 1.5),
-                    OutlinedButton(
-                        onPressed: () {},
-                        child: const SimpleText(AppString.filter)),
+                    TextButton(
+                        onPressed: toggle,
+                        child: SimpleText(_toggle ? 'List' : 'Map')),
                   ],
                 ),
-              ),
+                const Divider(thickness: 1.5),
+                OutlinedButton(
+                    onPressed: () {},
+                    child: const SimpleText(AppString.filter)),
+              ],
             ),
-          ],
+          ),
         ),
-        // floatingActionButton: FloatingActionButton.extended(
-        //   onPressed: _goToTheLake,
-        //   label: Text('To the lake!'),
-        //   icon: Icon(Icons.directions_boat),
-        // ),
-      ),
+      ],
     );
   }
 }

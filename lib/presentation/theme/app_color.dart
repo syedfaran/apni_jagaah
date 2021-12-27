@@ -8,4 +8,5 @@ class AppColor{
   static const scaffoldBackgroundColor = Color(0xffF7F7F7);
   static const textButtonColor = Colors.lightGreen;
   static const mainColor = Colors.lightGreen;
+  static const blackColor = Colors.black;
 }

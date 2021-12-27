@@ -143,10 +143,10 @@ class _InquiryForm extends StatelessWidget {
       child: Column(
         children: [
           const SimpleText(AppString.inquiryFrom, fontSize: 30),
-          const TextFieldBorder(hintText: AppString.enterFullName),
-          const TextFieldBorder(hintText: AppString.enterPhoneNumber),
-          const TextFieldBorder(hintText: AppString.enterEmailAddress),
-          const TextFieldBorder(hintText: AppString.enterMessage),
+          const TextFieldBorder(hintText: AppString.enterFullName,hPadding: 16.0),
+          const TextFieldBorder(hintText: AppString.enterPhoneNumber,hPadding: 16.0),
+          const TextFieldBorder(hintText: AppString.enterEmailAddress,hPadding: 16.0),
+          const TextFieldBorder(hintText: AppString.enterMessage,hPadding: 16.0),
           const SizedBox(height: 15),
           OutlinedButton(
               onPressed: () {}, child: const SimpleText(AppString.submit)),

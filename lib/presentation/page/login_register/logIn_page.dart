@@ -21,14 +21,16 @@ class LogInPage extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     padding: EdgeInsets.zero,
                     icon: const Icon(Icons.close_rounded,
                         color: AppColor.grey, size: 40.0)),
                 const Spacer(),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, RouteString.register);
+                      Navigator.pushReplacementNamed(context, RouteString.register);
                     },
                     child: const SimpleText(AppString.register,
                         color: AppColor.textButtonColor)),

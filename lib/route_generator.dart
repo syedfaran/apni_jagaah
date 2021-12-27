@@ -15,12 +15,14 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initialPage:
-        //return MaterialPageRoute(builder: (_) => const SecondChildDetailPage());
+        return MaterialPageRoute(builder: (_) => const SplashPage());
         return MaterialPageRoute(builder: (_) => const LogInPage());
       case RouteString.homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
       case RouteString.detailPage:
         return MaterialPageRoute(builder: (_)=>const SecondChildDetailPage());
+      case RouteString.login:
+        return MaterialPageRoute(builder: (_)=>const LogInPage());
       case RouteString.register:
         return MaterialPageRoute(builder: (_)=>const RegisterPage());
       default:

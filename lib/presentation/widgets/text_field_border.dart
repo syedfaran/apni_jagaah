@@ -18,7 +18,7 @@ class TextFieldBorder extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          labelText != null ? SimpleText(labelText!,color: Colors.grey,enumText: EnumText.extraBold) : const SizedBox.shrink(),
+          labelText != null ? SimpleText(labelText!,color: Colors.grey,enumText: EnumText.extraBold,fontSize: 16.0) : const SizedBox.shrink(),
           TextField(
             //enabled: false,
             textInputAction: TextInputAction.next,

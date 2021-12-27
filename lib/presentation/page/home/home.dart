@@ -1,6 +1,10 @@
+import 'package:apni_jagaah/constant/app_string.dart';
 import 'package:apni_jagaah/presentation/blocs/temp_bloc/temp_bloc.dart';
 
 import 'package:apni_jagaah/presentation/page/home/find_home/find_home.dart';
+import 'package:apni_jagaah/presentation/page/home/my_profile/profile_page.dart';
+import 'package:apni_jagaah/presentation/page/home/trusted/trusted_page.dart';
+import 'package:apni_jagaah/presentation/theme/app_color.dart';
 
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
 import 'package:flutter/material.dart';
@@ -25,22 +29,19 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-
   static const List<Widget> _widgetOptions = <Widget>[
     FindHome(),
+    TrustedPage(),
     SimpleText(
-      'Index 1: Business',
+      'Index 2: School',
     ),
     SimpleText(
       'Index 2: School',
     ),
-
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-
-    });
     indexNotifier.value = index;
   }
 
@@ -50,26 +51,43 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: ValueListenableBuilder<int>(
             valueListenable: indexNotifier,
-            builder: (context, value, child) => _widgetOptions.elementAt(value)),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'find Home',
-
+            builder: (context, value, child) =>
+                _widgetOptions.elementAt(value)),
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+              // sets the background color of the `BottomNavigationBar`
+              canvasColor: AppColor.whiteColor),
+          child: ValueListenableBuilder<int>(
+            valueListenable: indexNotifier,
+            builder: (context, value, child) => BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.search),
+                  label: 'find Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.filter),
+                  label: 'Trusted',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.dashboard),
+                  label: 'DashBoard',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite),
+                  label: 'Favorites',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: 'My Profile',
+                ),
+              ],
+              currentIndex: value,
+              selectedItemColor: Colors.amber[800],
+              unselectedItemColor: Colors.grey,
+              onTap: _onItemTapped,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),
-              label: 'DashBoard',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'My Profile',
-            ),
-          ],
-          currentIndex: indexNotifier.value,
-          selectedItemColor: Colors.amber[800],
-          onTap: _onItemTapped,
+          ),
         ),
       ),
     );
