@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:apni_jagaah/constant/app_string.dart';
-import 'package:apni_jagaah/presentation/page/home/find_home/first_child.dart';
-import 'package:apni_jagaah/presentation/page/home/find_home/second_child.dart';
+import 'package:apni_jagaah/presentation/page/home/find_home/map_sample.dart';
+import 'package:apni_jagaah/presentation/page/home/find_home/listing.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,7 @@ class FindHomeState extends State<FindHome> {
         AnimatedCrossFade(
           duration: duration,
           firstChild: const MapSample(),
-          secondChild: const SecondChild(),
+          secondChild: const Listing(),
           crossFadeState: _toggle
               ? CrossFadeState.showFirst
               : CrossFadeState.showSecond,

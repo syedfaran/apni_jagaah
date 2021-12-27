@@ -4,6 +4,7 @@ import 'package:apni_jagaah/constant/image_string.dart';
 import 'package:apni_jagaah/constant/route_string.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -12,12 +13,29 @@ class SplashPage extends StatefulWidget {
   _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashPageState extends State<SplashPage>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+
   @override
   void initState() {
-    Timer(const Duration(seconds: 3),
-        () => Navigator.pushReplacementNamed(context, RouteString.homePage));
+    _controller = AnimationController(vsync: this)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          Navigator.pushReplacementNamed(context, RouteString.homePage);
+        }
+      });
+    // Timer(const Duration(seconds: 3),
+    //         () =>
+    //         Navigator.pushReplacementNamed(context, RouteString.homePage));
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(() {});
+    _controller.dispose();
+    super.dispose();
   }
 
   final Duration _duration = const Duration(milliseconds: 1500);
@@ -27,17 +45,31 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.whiteColor,
-      body: TweenAnimationBuilder<double>(
-        duration: _duration,
-        tween: _tween,
-        builder: (context, value, child) {
-          return Opacity(opacity: value, child: child);
-        },
-        child: const Center(
-            child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25.0),
-          child: Image(image: ImageString.apniJaggahSplash),
-        )),
+      body:
+
+      Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Lottie.asset(
+            'assets/lottie_real_estate.json',
+            controller: _controller,
+
+            onLoaded: (composition) {
+              // Configure the AnimationController with the duration of the
+              // Lottie file and start the animation.
+              _controller
+                ..duration = composition.duration
+                ..forward();
+            },
+          ),
+          const Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25.0),
+                child: Image(image: ImageString.apniJaggahSplash),
+              )),
+
+        ],
       ),
     );
   }

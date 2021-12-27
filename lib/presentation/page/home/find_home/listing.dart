@@ -3,15 +3,16 @@ import 'package:apni_jagaah/constant/route_string.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
 import 'package:flutter/material.dart';
 
-class SecondChild extends StatelessWidget {
-  const SecondChild({Key? key}) : super(key: key);
+class Listing extends StatelessWidget {
+  const Listing({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final _decoration = BoxDecoration(
       borderRadius: BorderRadius.circular(25.0),
     );
-    return SizedBox.expand(
+    return AspectRatio(
+      aspectRatio: 3/4,
       child: ListView.builder(
           padding: const EdgeInsets.only(top: 150, left: 20.0, right: 20.0),
           itemCount: 3,
