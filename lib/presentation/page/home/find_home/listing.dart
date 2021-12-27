@@ -14,7 +14,7 @@ class Listing extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 3/4,
       child: ListView.builder(
-          padding: const EdgeInsets.only(top: 150, left: 20.0, right: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15,),
           itemCount: 3,
           itemBuilder: (context, index) => GestureDetector(
             onTap: (){
