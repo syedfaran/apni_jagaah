@@ -1,18 +1,24 @@
 import 'package:apni_jagaah/constant/app_string.dart';
 import 'package:apni_jagaah/constant/image_string.dart';
+import 'package:apni_jagaah/presentation/page/home/find_home/map_sample.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
 import 'package:apni_jagaah/presentation/widgets/text_field_border.dart';
 import 'package:flutter/material.dart';
 
-class SecondChildDetailPage extends StatelessWidget {
-  const SecondChildDetailPage({Key? key}) : super(key: key);
+class DetailPage extends StatefulWidget {
+  const DetailPage({Key? key}) : super(key: key);
   static const imageList = [
     ImageString.roomOne,
     ImageString.roomTwo,
     ImageString.roomThree
   ];
 
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
   Widget miniInfo(String option, String value) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(children: [
@@ -20,7 +26,15 @@ class SecondChildDetailPage extends StatelessWidget {
           SimpleText(option, fontSize: 16),
         ]),
       );
-
+  final ValueNotifier<bool> continueReadingNotifier = ValueNotifier(false);
+  void continueReading(){
+    continueReadingNotifier.value = !continueReadingNotifier.value;
+  }
+  @override
+  void dispose() {
+    continueReadingNotifier.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,20 +46,19 @@ class SecondChildDetailPage extends StatelessWidget {
             child: SizedBox(
               height: 230,
               child: PageView.builder(
-                itemCount: imageList.length,
+                itemCount: DetailPage.imageList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) =>
-                    Image(fit: BoxFit.fill, image: imageList[index]),
+                    Image(fit: BoxFit.fill, image: DetailPage.imageList[index]),
               ),
             ),
           ),
-          //description
-          SliverList(
-              delegate: SliverChildListDelegate([
-            Card(
+          //Mini description
+          SliverToBoxAdapter(
+            child: Card(
               child: ListTile(
                 title:
-                    const SimpleText('\$250,000', enumText: EnumText.extraBold),
+                const SimpleText('\$250,000', enumText: EnumText.extraBold),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
@@ -69,7 +82,17 @@ class SecondChildDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-            Card(
+          ),
+          //mapSample
+          const SliverToBoxAdapter(
+            child: AspectRatio(
+                aspectRatio: 1.5,
+                child: AbsorbPointer(
+                    absorbing: true, child: Card(child: MapSample()))),
+          ),
+          //key Info
+          SliverToBoxAdapter(
+            child: Card(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
@@ -87,7 +110,7 @@ class SecondChildDetailPage extends StatelessWidget {
                 ],
               ),
             ),
-          ])),
+          ),
           //about this home
           SliverToBoxAdapter(
             child: Card(
@@ -98,12 +121,20 @@ class SecondChildDetailPage extends StatelessWidget {
                   children: [
                     const SimpleText(AppString.aboutThisHome,
                         fontSize: 30, vertical: 16, enumText: EnumText.light),
-                    const SimpleText(AppString.descriptionText,
-                        textAlign: TextAlign.justify, maxLine: 4),
+                    ValueListenableBuilder<bool>(
+                      builder: (context,value,child)=>SimpleText(AppString.descriptionText,
+                          textAlign: TextAlign.justify, maxLine: value?null:4),
+                      valueListenable: continueReadingNotifier,
+
+                    ),
                     TextButton(
-                        onPressed: () {},
-                        child: const SimpleText(AppString.continueReading,
-                            fontSize: 24,color: AppColor.textButtonColor,)),
+                        onPressed: continueReading
+                        ,
+                        child: const SimpleText(
+                          AppString.continueReading,
+                          fontSize: 24,
+                          color: AppColor.textButtonColor,
+                        )),
                   ],
                 ),
               ),
@@ -111,7 +142,6 @@ class SecondChildDetailPage extends StatelessWidget {
           ),
           //inquiryForm
           const SliverToBoxAdapter(child: _InquiryForm()),
-
           //SliverChildBuilderDelegate(builder),
         ],
       ),
@@ -143,10 +173,14 @@ class _InquiryForm extends StatelessWidget {
       child: Column(
         children: [
           const SimpleText(AppString.inquiryFrom, fontSize: 30),
-          const TextFieldBorder(hintText: AppString.enterFullName,hPadding: 16.0),
-          const TextFieldBorder(hintText: AppString.enterPhoneNumber,hPadding: 16.0),
-          const TextFieldBorder(hintText: AppString.enterEmailAddress,hPadding: 16.0),
-          const TextFieldBorder(hintText: AppString.enterMessage,hPadding: 16.0),
+          const TextFieldBorder(
+              hintText: AppString.enterFullName, hPadding: 16.0),
+          const TextFieldBorder(
+              hintText: AppString.enterPhoneNumber, hPadding: 16.0),
+          const TextFieldBorder(
+              hintText: AppString.enterEmailAddress, hPadding: 16.0),
+          const TextFieldBorder(
+              hintText: AppString.enterMessage, hPadding: 16.0),
           const SizedBox(height: 15),
           OutlinedButton(
               onPressed: () {}, child: const SimpleText(AppString.submit)),

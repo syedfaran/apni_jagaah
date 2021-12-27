@@ -43,15 +43,16 @@ class FindHomeState extends State<FindHome> {
               ? CrossFadeState.showFirst
               : CrossFadeState.showSecond,
         ),
-        Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            width: double.infinity,
-            height: 150,
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            decoration: const BoxDecoration(
-              color: AppColor.offWhiteColor,
-            ),
+        SizedBox(
+          height: 150,
+          child: Card(
+            color: AppColor.offWhiteColor,
+            // width: double.infinity,
+            // height: 150,
+            // padding: const EdgeInsets.symmetric(horizontal: 25),
+            // decoration: const BoxDecoration(
+            //   color: AppColor.offWhiteColor,
+            // ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -67,6 +68,7 @@ class FindHomeState extends State<FindHome> {
                         onChanged: (val) {},
                       ),
                     ),
+                    const SizedBox(height: 50,child: VerticalDivider(thickness: 0.5,color: AppColor.blackColor,)),
                     TextButton(
                         onPressed: toggle,
                         child: SimpleText(_toggle ? 'List' : 'Map')),

@@ -1,17 +1,10 @@
-import 'package:apni_jagaah/constant/app_string.dart';
-import 'package:apni_jagaah/presentation/blocs/temp_bloc/temp_bloc.dart';
-
 import 'package:apni_jagaah/presentation/page/home/find_home/find_home.dart';
 import 'package:apni_jagaah/presentation/page/home/my_profile/profile_page.dart';
 import 'package:apni_jagaah/presentation/page/home/trusted/trusted_page.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
-
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app_localizations.dart';
-import '../../../dependency_injection.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -49,6 +42,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: ValueListenableBuilder<int>(
             valueListenable: indexNotifier,
             builder: (context, value, child) =>
