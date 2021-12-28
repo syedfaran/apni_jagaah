@@ -32,7 +32,7 @@ class _MapSampleState extends State<MapSample> {
     }
 
     return AspectRatio(
-      aspectRatio: 3/4,
+      aspectRatio: 3.5 / 5.3,
       child: GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition: _kGooglePlex,

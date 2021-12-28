@@ -34,7 +34,7 @@ class AppString {
   static const confirmPassword = 'Confirm Password';
   static const join = 'Join';
   static const signIn = 'Sign In';
-  static const joinToUnlock = 'join to unlock full experience';
+  static const joinToUnlock = 'Join to unlock full experience';
   static const properties = 'Properties';
   static const inquires = 'Inquires';
   static const reviews = 'Reviews';

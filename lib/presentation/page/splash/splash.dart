@@ -25,9 +25,6 @@ class _SplashPageState extends State<SplashPage>
           Navigator.pushReplacementNamed(context, RouteString.homePage);
         }
       });
-    // Timer(const Duration(seconds: 3),
-    //         () =>
-    //         Navigator.pushReplacementNamed(context, RouteString.homePage));
     super.initState();
   }
 
@@ -45,16 +42,15 @@ class _SplashPageState extends State<SplashPage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.whiteColor,
-      body:
-
-      Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
+         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          const SizedBox(height: 150),
           Lottie.asset(
             'assets/lottie_real_estate.json',
+            height: 250,
             controller: _controller,
-
             onLoaded: (composition) {
               // Configure the AnimationController with the duration of the
               // Lottie file and start the animation.
@@ -64,11 +60,8 @@ class _SplashPageState extends State<SplashPage>
             },
           ),
           const Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
-                child: Image(image: ImageString.apniJaggahSplash),
-              )),
-
+              child:
+                  SizedBox(width: 260,child: Image(image: ImageString.apniJaggahSplash))),
         ],
       ),
     );

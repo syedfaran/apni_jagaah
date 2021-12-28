@@ -6,7 +6,7 @@ class AppColor{
   static const whiteColor = Colors.white;
   static const grey = Colors.grey;
   static const scaffoldBackgroundColor = Color(0xffF7F7F7);
-  static const textButtonColor = Colors.lightGreen;
-  static const mainColor = Colors.lightGreen;
+  static const textButtonColor = Colors.teal;
+  static const mainColor = Colors.teal;
   static const blackColor = Colors.black;
 }

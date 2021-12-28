@@ -11,7 +11,7 @@ class AppTheme {
 
 ThemeData _lightTheme = ThemeData(
   brightness: Brightness.light,
-  textTheme: GoogleFonts.libreFranklinTextTheme(),
+  textTheme: GoogleFonts.robotoTextTheme(),
   scaffoldBackgroundColor: AppColor.scaffoldBackgroundColor,
 
   colorScheme: ColorScheme.fromSwatch(primarySwatch: AppColor.mainColor)
