@@ -1,6 +1,7 @@
 import 'package:apni_jagaah/constant/app_string.dart';
 import 'package:apni_jagaah/constant/route_string.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
+import 'package:apni_jagaah/presentation/widgets/decorated_drop_down.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
 import 'package:apni_jagaah/presentation/widgets/text_field_border.dart';
 import 'package:flutter/gestures.dart';
@@ -55,7 +56,8 @@ class _RegisterPageState extends State<RegisterPage> {
             vertical: 35.0,
           ),
           /////DropDownButton/////
-          _DropDown(list: RegisterPage._list, valueNotifier: _valueNotifier),
+          DecoratedDropDown(
+              list: RegisterPage._list, valueNotifier: _valueNotifier),
           //////////////
           const TextFieldBorder(
             hintText: 'Enter First Name',
@@ -97,56 +99,55 @@ class _RegisterPageState extends State<RegisterPage> {
                     TextSpan(
                       text: 'terms and conditions',
                       style: const TextStyle(color: AppColor.textButtonColor),
-                      recognizer: TapGestureRecognizer()..onTap=(){},
+                      recognizer: TapGestureRecognizer()..onTap = () {},
                     ),
                   ],
                   text: 'I agree to the ',
-                  style:const TextStyle(color: AppColor.blackColor)),
+                  style: const TextStyle(color: AppColor.blackColor)),
             ),
           ),
           ElevatedButton(
-          style: ElevatedButton.styleFrom(fixedSize: const Size(0,45)),
+              style: ElevatedButton.styleFrom(fixedSize: const Size(0, 45)),
               onPressed: () {},
               child: const SimpleText(AppString.register,
                   color: AppColor.whiteColor)),
-
         ],
       ),
     ));
   }
 }
 
-class _DropDown extends StatelessWidget {
-  final ValueNotifier<String> valueNotifier;
-  final List<String> list;
-
-  const _DropDown({Key? key, required this.list, required this.valueNotifier})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ValueListenableBuilder<String>(
-      valueListenable: valueNotifier,
-      builder: (context, value, child) => InputDecorator(
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(),
-          focusedBorder:
-              OutlineInputBorder(borderSide: BorderSide(color: Colors.teal)),
-          hintText: 'Select Account Type',
-        ),
-        isEmpty: value == '',
-        child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-          value: value == '' ? null : value,
-          isDense: true,
-          items: list
-              .map((e) => DropdownMenuItem(child: SimpleText(e), value: e))
-              .toList(),
-          onChanged: (val) {
-            valueNotifier.value = val!;
-          },
-        )),
-      ),
-    );
-  }
-}
+// class DecoratedDropDown extends StatelessWidget {
+//   final ValueNotifier<String> valueNotifier;
+//   final List<String> list;
+//
+//   const DecoratedDropDown({Key? key, required this.list, required this.valueNotifier})
+//       : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return ValueListenableBuilder<String>(
+//       valueListenable: valueNotifier,
+//       builder: (context, value, child) => InputDecorator(
+//         decoration: const InputDecoration(
+//           border: OutlineInputBorder(),
+//           focusedBorder:
+//               OutlineInputBorder(borderSide: BorderSide(color: Colors.teal)),
+//           hintText: 'Select Account Type',
+//         ),
+//         isEmpty: value == '',
+//         child: DropdownButtonHideUnderline(
+//             child: DropdownButton<String>(
+//           value: value == '' ? null : value,
+//           isDense: true,
+//           items: list
+//               .map((e) => DropdownMenuItem(child: SimpleText(e), value: e))
+//               .toList(),
+//           onChanged: (val) {
+//             valueNotifier.value = val!;
+//           },
+//         )),
+//       ),
+//     );
+//   }
+// }

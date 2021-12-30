@@ -1,5 +1,6 @@
 import 'package:apni_jagaah/constant/app_string.dart';
 import 'package:apni_jagaah/constant/image_string.dart';
+import 'package:apni_jagaah/presentation/page/home/find_home/hero_list.dart';
 import 'package:apni_jagaah/presentation/page/home/find_home/map_sample.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
@@ -8,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
-  static const imageList = [
+  static const imageList = <ImageProvider>[
     ImageString.roomOne,
     ImageString.roomTwo,
     ImageString.roomThree
@@ -49,12 +50,25 @@ class _DetailPageState extends State<DetailPage> {
           //imagePageView
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 290,
+              height: 280,
               child: PageView.builder(
                 itemCount: DetailPage.imageList.length,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) =>
-                    Image(fit: BoxFit.fill, image: DetailPage.imageList[index]),
+                itemBuilder: (context, index) => GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HeroList(
+                                    imageList: DetailPage.imageList,
+                                    heroId: index,
+                                  )));
+                    },
+                    child: Hero(
+                        tag: index,
+                        child: Image(
+                            fit: BoxFit.fill,
+                            image: DetailPage.imageList[index]))),
               ),
             ),
           ),
@@ -62,13 +76,13 @@ class _DetailPageState extends State<DetailPage> {
           SliverToBoxAdapter(
             child: Card(
               child: ListTile(
-                contentPadding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                 title: Row(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-
                         const SimpleText('\$250,000',
                             enumText: EnumText.extraBold),
                         SimpleText('Est \$926/mo',
@@ -91,21 +105,26 @@ class _DetailPageState extends State<DetailPage> {
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SimpleText('124 WOODLAWN Ave\nJERSEY CITY, NJ 07305',
-                        fontSize: 13, vertical: 20,color: Colors.black87,),
+                    const SimpleText(
+                      '124 WOODLAWN Ave\nJERSEY CITY, NJ 07305',
+                      fontSize: 13,
+                      vertical: 20,
+                      color: Colors.black87,
+                    ),
                     RichText(
                       text: const TextSpan(
-                        text: 'Estimate:',
-                        style: TextStyle(
-                            decoration: TextDecoration.underline, color: Colors.black87),
-                        children: [
-                          TextSpan(
-                            text: ' \$290,195',
-                      style: TextStyle(
-                          decoration: TextDecoration.none,color: Colors.black87),
-                          ),
-                        ]
-                      ),
+                          text: 'Estimate:',
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Colors.black87),
+                          children: [
+                            TextSpan(
+                              text: ' \$290,195',
+                              style: TextStyle(
+                                  decoration: TextDecoration.none,
+                                  color: Colors.black87),
+                            ),
+                          ]),
                     ),
                   ],
                 ),
@@ -146,28 +165,29 @@ class _DetailPageState extends State<DetailPage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.50),
                 child: ValueListenableBuilder<bool>(
-                    valueListenable: continueReadingNotifier,
-                    builder: (context, value, child) =>Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SimpleText(AppString.aboutThisHome,
-                            fontSize: 24.5, vertical: 16, enumText: EnumText.light),
-                        SimpleText(
-                            AppString.descriptionText,
-                            fontSize: 14,
-                            height: 1.5,
-                            textAlign: TextAlign.left,
-                            maxLine: value ? null : 4),
-                        TextButton(
-                            onPressed: continueReading,
-                            child:  SimpleText(
-                              value?'Show Less':AppString.continueReading,
-                              fontSize: 18,
-                              enumText: EnumText.bold,
-                              color: Colors.teal,
-                            )),
-                      ],
-                    ),
+                  valueListenable: continueReadingNotifier,
+                  builder: (context, value, child) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SimpleText(AppString.aboutThisHome,
+                          fontSize: 24.5,
+                          vertical: 16,
+                          enumText: EnumText.light),
+                      SimpleText(AppString.descriptionText,
+                          fontSize: 14,
+                          height: 1.5,
+                          textAlign: TextAlign.left,
+                          maxLine: value ? null : 4),
+                      TextButton(
+                          onPressed: continueReading,
+                          child: SimpleText(
+                            value ? 'Show Less' : AppString.continueReading,
+                            fontSize: 18,
+                            enumText: EnumText.bold,
+                            color: Colors.teal,
+                          )),
+                    ],
+                  ),
                 ),
               ),
             ),

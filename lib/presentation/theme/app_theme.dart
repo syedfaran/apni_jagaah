@@ -13,8 +13,7 @@ ThemeData _lightTheme = ThemeData(
   brightness: Brightness.light,
   textTheme: GoogleFonts.robotoTextTheme(),
   scaffoldBackgroundColor: AppColor.scaffoldBackgroundColor,
-
-  colorScheme: ColorScheme.fromSwatch(primarySwatch: AppColor.mainColor)
+    colorScheme: ColorScheme.fromSwatch(primarySwatch: AppColor.mainColor)
   // appBarTheme: const AppBarTheme(color: AppColor.transparent),
 );
 //robotoTextTheme

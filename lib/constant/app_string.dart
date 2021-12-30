@@ -40,5 +40,46 @@ class AppString {
   static const reviews = 'Reviews';
   static const signOut = 'Sign Out';
   static const profile = 'Profile';
+  //addProperty
+  static const addProperty = 'Add Property';
+  static const purpose = 'Purpose:';
+  static const selectPurpose = 'Select Purpose';
+  static const propertyTitle = 'Property Title:';
+  static const enterAnAttractiveTitle = 'enter an attractive title for your property';
+  static const categoryR = 'Category:';
+  static const selectCategory = 'Select Category';
+  static const typeR = 'Types:';
+  static const selectType = 'Select Type';
+  static const feature = 'Features:';
+  static const selectFeature = 'Select Feature:';
+  static const unit = 'Unit:';
+  static const selectUnit = 'Select Unit';
+  static const priceR = 'Price:';
+  static const enterPrice = 'Enter Price';
+  static const areaR = 'Area:';
+  static const enterAreaR = 'Enter Area';
+  static const room = 'Room(s)';
+  static const enterRoom = 'Enter Room';
+  static const bedroom = 'Bedroom:';
+  static const enterBedroom = 'Enter Bedroom';
+  static const bathroom = 'Bathroom:';
+  static const enterBathroom = 'Enter Bathroom';
+  static const geoLocation = 'Geo Location:';
+  static const enterGeoLocation = 'Enter an address,neighbourhood,city or zip code';
+  static const addressLineOne = 'Address Line 1:';
+  static const enterAddressLineOne = 'Enter Address Line 1';
+  static const addressLineTwo = 'Address Line 2:';
+  static const enterAddressLineTwo = 'Enter Address Line 2';
+  static const postalCode = 'Postal Code:';
+  static const enterPostalCode = 'Enter Postal Code';
+  static const city = 'City:';
+  static const enterCity = 'Enter City:';
+  static const location = 'Location:';
+  static const enterLocation = 'Enter Location:';
+  static const buildingAge = 'Building Age:';
+  static const enterBuildingAge = 'Enter Building Age';
+  static const description = 'Description:';
+  static const enterDescription = 'Enter Description';
+  //temp
   static const descriptionText = ' Home is not just a house it is a place. A house is just like a shelter where you live but you don\'t love it. Home is where you love to live in because you have your belongings in it, your toys that you grown up with your childhood memories and many more things. Even if you move to another house, you still have these things which will remind you of other homes that you have lived in. My home is in Pakistan because that is where I am originally from. In US, I lived in many places and I moved several times and I exactly don\'t know my real home but I have memories that shows that I lived in those homes. However, in Pakistan I only lived in one house, where I grown up and I never moved from that house. However, I don\'t think that if I live in only one place than it is my real home because if I move from there than this house will just remain in my memories but than my home would be another place where I am living in. ';
 }

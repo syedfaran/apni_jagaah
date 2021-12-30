@@ -1,4 +1,6 @@
 import 'package:apni_jagaah/constant/app_string.dart';
+import 'package:apni_jagaah/presentation/page/home/dashboard/dashboard.dart';
+import 'package:apni_jagaah/presentation/page/home/favourite/favourite.dart';
 import 'package:apni_jagaah/presentation/page/home/find_home/find_home.dart';
 import 'package:apni_jagaah/presentation/page/home/my_profile/profile_page.dart';
 import 'package:apni_jagaah/presentation/page/home/trusted/trusted_page.dart';
@@ -28,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     indexNotifier.value = index;
   }
 
-  bool _toggle = true;
+  bool _toggle = false;
 
   void toggle() {
     setState(() {
@@ -147,8 +149,8 @@ class _HomePageState extends State<HomePage> {
             body: <Widget>[
               FindHome(_toggle),
               const TrustedPage(),
-              const Center(child:  SimpleText('dashboard')),
-              const Center(child:  SimpleText('favourite')),
+              const Dashboard(),
+              const Favourite(),
               const ProfilePage(),
             ].elementAt(value)),
       ),
