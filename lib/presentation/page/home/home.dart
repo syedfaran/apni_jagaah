@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ValueNotifier<int> indexNotifier = ValueNotifier(0);
+  final ValueNotifier<int> indexNotifier = ValueNotifier(2);
   final ValueNotifier<int> mapToListNotifier = ValueNotifier(0);
 
   @override
@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
               child: BottomNavigationBar(
                 items: const <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.search), label: 'find Home'),
+                      icon: Icon(Icons.search), label: 'Find Home'),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.filter),
                     label: 'Trusted',

@@ -71,7 +71,9 @@ class _ProfilePageState extends State<ProfilePage> {
               _ProfileListTile(
                   title: AppString.properties,
                   iconData: Icons.title,
-                  onTap: () {}),
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteString.addProperty);
+                  }),
               _divider,
               _ProfileListTile(
                 title: AppString.inquires,
@@ -86,7 +88,9 @@ class _ProfilePageState extends State<ProfilePage> {
               _divider,
               _ProfileListTile(
                   title: AppString.profile,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteString.profile);
+                  },
                   iconData: Icons.person),
               _divider,
               _ProfileListTile(

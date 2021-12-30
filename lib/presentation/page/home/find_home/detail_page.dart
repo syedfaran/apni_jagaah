@@ -65,6 +65,7 @@ class _DetailPageState extends State<DetailPage> {
                                   )));
                     },
                     child: Hero(
+
                         tag: index,
                         child: Image(
                             fit: BoxFit.fill,

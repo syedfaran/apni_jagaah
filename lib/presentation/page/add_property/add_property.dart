@@ -1,6 +1,8 @@
 import 'package:apni_jagaah/constant/app_string.dart';
 import 'package:apni_jagaah/presentation/page/home/find_home/map_sample.dart';
+import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:apni_jagaah/presentation/widgets/decorated_drop_down.dart';
+import 'package:apni_jagaah/presentation/widgets/simple_appbar.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
 import 'package:apni_jagaah/presentation/widgets/text_field_border.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,7 @@ class _AddPropertyState extends State<AddProperty> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const SimpleText(AppString.addProperty)),
+      appBar: const SimpleAppbar(title: AppString.addProperty,),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
         children: [
@@ -78,36 +80,37 @@ class _AddPropertyState extends State<AddProperty> {
             children: const [
               Expanded(
                   child: TextFieldBorder(
-                labelText: AppString.areaR,
-                hintText: AppString.enterAreaR,
-              )),
+                    labelText: AppString.areaR,
+                    hintText: AppString.enterAreaR,
+                  )),
               SizedBox(width: 25),
               Expanded(
                   child: TextFieldBorder(
-                labelText: AppString.room,
-                hintText: AppString.enterRoom,
-              )),
+                    labelText: AppString.room,
+                    hintText: AppString.enterRoom,
+                  )),
             ],
           ),
           Row(
             children: const [
               Expanded(
                   child: TextFieldBorder(
-                labelText: AppString.bedroom,
-                hintText: AppString.enterBedroom,
-              )),
+                    labelText: AppString.bedroom,
+                    hintText: AppString.enterBedroom,
+                  )),
               SizedBox(width: 25),
               Expanded(
                   child: TextFieldBorder(
-                labelText: AppString.bathroom,
-                hintText: AppString.enterBathroom,
-              )),
+                    labelText: AppString.bathroom,
+                    hintText: AppString.enterBathroom,
+                  )),
             ],
           ),
-           TextFieldBorder(
+          TextFieldBorder(
             labelText: AppString.geoLocation,
             hintText: AppString.enterGeoLocation,
-            leading: IconButton(onPressed: () {}, icon: const Icon(Icons.location_on)),
+            leading: IconButton(
+                onPressed: () {}, icon: const Icon(Icons.location_on)),
           ),
           const AbsorbPointer(
               absorbing: true,
@@ -132,6 +135,9 @@ class _AddPropertyState extends State<AddProperty> {
             labelText: AppString.buildingAge,
             hintText: AppString.enterBuildingAge,
           ),
+          ElevatedButton(onPressed: null,
+              child: const SimpleText(AppString.submit,color: AppColor.whiteColor),
+              style: ElevatedButton.styleFrom(fixedSize: const Size(0, 45))),
         ],
       ),
     );

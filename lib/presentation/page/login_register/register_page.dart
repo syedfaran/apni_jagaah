@@ -49,15 +49,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       color: AppColor.textButtonColor)),
             ],
           ),
-          const SimpleText(
-            AppString.register,
-            enumText: EnumText.extraBold,
-            fontSize: 34,
-            vertical: 35.0,
-          ),
+          const SimpleText(AppString.register,
+              enumText: EnumText.extraBold, fontSize: 34, vertical: 35.0),
           /////DropDownButton/////
           DecoratedDropDown(
-              list: RegisterPage._list, valueNotifier: _valueNotifier),
+              hintText: AppString.selectAccountType,
+              list: RegisterPage._list,
+              valueNotifier: _valueNotifier),
           //////////////
           const TextFieldBorder(
             hintText: 'Enter First Name',
@@ -87,8 +85,19 @@ class _RegisterPageState extends State<RegisterPage> {
             hintText: 'Enter Confirm Password',
             labelText: AppString.confirmPassword,
           ),
+          ///////
+          OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                fixedSize: const Size(0, 45),
+                side: const BorderSide(width: 1.0, color: AppColor.mainColor),
+              ),
+              onPressed: () {},
+              child: const SimpleText(AppString.upLoadAvatar,
+                  color: AppColor.mainColor)),
+
           /////////////
           CheckboxListTile(
+            activeColor: AppColor.mainColor,
             value: true,
             onChanged: (value) {},
             controlAffinity: ListTileControlAffinity.leading,

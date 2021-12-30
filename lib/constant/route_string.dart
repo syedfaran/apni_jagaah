@@ -6,4 +6,5 @@ class RouteString{
   static const login = '/login';
   static const register = '/register';
   static const addProperty = '/addProperty';
+  static const profile = '/profile';
 }

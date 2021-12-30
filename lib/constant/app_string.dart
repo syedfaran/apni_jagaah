@@ -25,6 +25,8 @@ class AppString {
   static const enterEmailOrAddress = 'Enter Email or Address';
   static const enterPassword = 'Enter password';
   static const forgotPassword = 'Forgot Password ?';
+  static const upLoadAvatar = 'Upload Avatar';
+  static const upLoadCover = 'Upload Cover';
   //register
   static const firstName = 'First Name';
   static const lastName = 'Last Name';
@@ -40,6 +42,7 @@ class AppString {
   static const reviews = 'Reviews';
   static const signOut = 'Sign Out';
   static const profile = 'Profile';
+  static const selectAccountType = 'Select Account Type';
   //addProperty
   static const addProperty = 'Add Property';
   static const purpose = 'Purpose:';
