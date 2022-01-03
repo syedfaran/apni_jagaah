@@ -12,6 +12,7 @@ class SimpleAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
+      elevation: 0.5,
       leading: enablePop
           ? IconButton(
               onPressed: () {

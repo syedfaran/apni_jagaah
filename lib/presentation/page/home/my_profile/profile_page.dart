@@ -31,12 +31,12 @@ class _ProfilePageState extends State<ProfilePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SimpleText(AppString.joinToUnlock,
-                    enumText: EnumText.extraBold, fontSize: 26, vertical: 25),
+                    enumText: EnumText.extraBold, fontSize: 26, vertical: 15),
                 Row(
                   children: [
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(100, 45),
+                          fixedSize: const Size(80, 35),
                         ),
                         onPressed: () {
                           Navigator.pushNamed(context, RouteString.register);
@@ -45,11 +45,12 @@ class _ProfilePageState extends State<ProfilePage> {
                           AppString.join,
                           color: AppColor.whiteColor,
                           enumText: EnumText.semiBold,
+                          fontSize: 16.0,
                         )),
                     const SizedBox(width: 15.0),
                     OutlinedButton(
                         style: OutlinedButton.styleFrom(
-                          fixedSize: const Size(100, 45),
+                          fixedSize: const Size(90, 35),
                         ),
                         onPressed: () {
                           Navigator.pushNamed(context, RouteString.login);
@@ -57,6 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: const SimpleText(
                           AppString.signIn,
                           enumText: EnumText.semiBold,
+                          fontSize: 16.0,
                         )),
                   ],
                 ),

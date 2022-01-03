@@ -1,6 +1,7 @@
 import 'package:apni_jagaah/constant/route_string.dart';
 import 'package:apni_jagaah/presentation/page/add_property/add_property.dart';
 import 'package:apni_jagaah/presentation/page/home/find_home/detail_page.dart';
+import 'package:apni_jagaah/presentation/page/home/find_home/filter.dart';
 import 'package:apni_jagaah/presentation/page/home/home.dart';
 import 'package:apni_jagaah/presentation/page/home/my_profile/profile.dart';
 import 'package:apni_jagaah/presentation/page/login_register/logIn_page.dart';
@@ -17,7 +18,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initialPage:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(builder: (_) => const SplashPage());
         return MaterialPageRoute(builder: (_) => const HomePage());
       case RouteString.homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
@@ -31,6 +32,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_)=>const AddProperty());
       case RouteString.profile:
         return MaterialPageRoute(builder: (_)=>const Profile());
+      case RouteString.filter:
+        return MaterialPageRoute(builder: (_)=>const Filter());
       default:
         return _errorRoute();
     }

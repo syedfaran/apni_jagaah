@@ -83,6 +83,7 @@ class AppString {
   static const enterBuildingAge = 'Enter Building Age';
   static const description = 'Description:';
   static const enterDescription = 'Enter Description';
+  static const searchFilter = 'Search Filter';
   //temp
   static const descriptionText = ' Home is not just a house it is a place. A house is just like a shelter where you live but you don\'t love it. Home is where you love to live in because you have your belongings in it, your toys that you grown up with your childhood memories and many more things. Even if you move to another house, you still have these things which will remind you of other homes that you have lived in. My home is in Pakistan because that is where I am originally from. In US, I lived in many places and I moved several times and I exactly don\'t know my real home but I have memories that shows that I lived in those homes. However, in Pakistan I only lived in one house, where I grown up and I never moved from that house. However, I don\'t think that if I live in only one place than it is my real home because if I move from there than this house will just remain in my memories but than my home would be another place where I am living in. ';
 }

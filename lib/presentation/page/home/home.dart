@@ -1,4 +1,5 @@
 import 'package:apni_jagaah/constant/app_string.dart';
+import 'package:apni_jagaah/constant/route_string.dart';
 import 'package:apni_jagaah/presentation/page/home/dashboard/dashboard.dart';
 import 'package:apni_jagaah/presentation/page/home/favourite/favourite.dart';
 import 'package:apni_jagaah/presentation/page/home/find_home/find_home.dart';
@@ -16,13 +17,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ValueNotifier<int> indexNotifier = ValueNotifier(2);
-  final ValueNotifier<int> mapToListNotifier = ValueNotifier(0);
+  final ValueNotifier<int> indexNotifier = ValueNotifier(0);
+
 
   @override
   void dispose() {
     indexNotifier.dispose();
-    mapToListNotifier.dispose();
     super.dispose();
   }
 
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
         builder: (context, value, child) => Scaffold(
             appBar: PreferredSize(
                 preferredSize: appbarDecider(value)
-                    ? const Size(0, 125)
+                    ? const Size(0, 100)
                     : const Size(0, 60),
                 child: AppBar(
                   elevation: appbarDecider(value)?1.0:0.0,
@@ -97,10 +97,13 @@ class _HomePageState extends State<HomePage> {
                                   const EdgeInsets.symmetric(horizontal: 22.0),
                               child: OutlinedButton(
                                   style: OutlinedButton.styleFrom(
-                                      fixedSize: const Size(110, 45)),
-                                  onPressed: () {},
+                                      fixedSize: const Size(90, 35)),
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, RouteString.filter);
+                                  },
                                   child: const SimpleText(
                                     AppString.filter,
+                                    fontSize: 16.0,
                                   )),
                             ),
                           ],
