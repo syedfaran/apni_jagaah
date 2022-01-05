@@ -8,4 +8,6 @@ class RouteString{
   static const addProperty = '/addProperty';
   static const profile = '/profile';
   static const filter = '/filter';
+  static const review = '/review';
+  static const inquiry = '/inquiry';
 }

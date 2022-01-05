@@ -90,6 +90,7 @@ class _ProfileState extends State<Profile> {
             ],
           ),
           /////////////
+          const SizedBox(height: 10),
           ElevatedButton(
               style: ElevatedButton.styleFrom(fixedSize: const Size(0, 45)),
               onPressed: () {},

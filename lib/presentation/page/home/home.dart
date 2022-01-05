@@ -3,7 +3,7 @@ import 'package:apni_jagaah/constant/route_string.dart';
 import 'package:apni_jagaah/presentation/page/home/dashboard/dashboard.dart';
 import 'package:apni_jagaah/presentation/page/home/favourite/favourite.dart';
 import 'package:apni_jagaah/presentation/page/home/find_home/find_home.dart';
-import 'package:apni_jagaah/presentation/page/home/my_profile/profile_page.dart';
+import 'package:apni_jagaah/presentation/page/home/my_profile/my_profile.dart';
 import 'package:apni_jagaah/presentation/page/home/trusted/trusted_page.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> {
               const TrustedPage(),
               const Dashboard(),
               const Favourite(),
-              const ProfilePage(),
+              const MyProfile(),
             ].elementAt(value)),
       ),
     );

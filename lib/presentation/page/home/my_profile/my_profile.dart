@@ -5,14 +5,14 @@ import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class MyProfile extends StatefulWidget {
+  const MyProfile({Key? key}) : super(key: key);
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<MyProfile> createState() => _MyProfileState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _MyProfileState extends State<MyProfile> {
   @override
   void initState() {
     super.initState();
@@ -79,13 +79,15 @@ class _ProfilePageState extends State<ProfilePage> {
               _divider,
               _ProfileListTile(
                 title: AppString.inquires,
-                onTap: () {},
+                onTap: () { Navigator.pushNamed(context, RouteString.inquiry);},
                 iconData: Icons.sort,
               ),
               _divider,
               _ProfileListTile(
                   title: AppString.reviews,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteString.review);
+                  },
                   iconData: Icons.reviews),
               _divider,
               _ProfileListTile(

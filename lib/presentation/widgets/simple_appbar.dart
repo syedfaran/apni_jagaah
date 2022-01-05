@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 class SimpleAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final bool enablePop;
-
-  const SimpleAppbar({Key? key, this.title, this.enablePop=true}) : super(key: key);
+  final List<Widget>? action;
+  const SimpleAppbar({Key? key, this.title, this.enablePop=true,this.action}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actions: action,
       automaticallyImplyLeading: false,
       elevation: 0.5,
       leading: enablePop
