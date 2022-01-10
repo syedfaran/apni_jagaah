@@ -20,8 +20,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initialPage:
-        return MaterialPageRoute(builder: (_) => const Inquiry());
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(builder: (_) => const SplashPage());
       case RouteString.homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
       case RouteString.detailPage:

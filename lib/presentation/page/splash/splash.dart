@@ -43,25 +43,33 @@ class _SplashPageState extends State<SplashPage>
     return Scaffold(
       backgroundColor: AppColor.whiteColor,
       body: Column(
-         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.center,
+        //crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(height: 150),
-          Lottie.asset(
-            'assets/lottie_real_estate.json',
-            height: 250,
-            controller: _controller,
-            onLoaded: (composition) {
-              // Configure the AnimationController with the duration of the
-              // Lottie file and start the animation.
-              _controller
-                ..duration = composition.duration
-                ..forward();
-            },
+          Align(
+
+            child: Lottie.asset(
+              'assets/lottie_real_estate.json',
+              height: 150,
+              width: 150,
+              fit: BoxFit.cover,
+              frameRate: FrameRate(60),
+              controller: _controller,
+              onLoaded: (composition) {
+                // Configure the AnimationController with the duration of the
+                // Lottie file and start the animation.
+                _controller
+                  ..duration = composition.duration
+                  ..forward();
+              },
+            ),
           ),
-          const Center(
-              child:
-                  SizedBox(width: 260,child: Image(image: ImageString.apniJaggahSplash))),
+          const SizedBox(height: 15),
+          const Align(
+            heightFactor: 1.5,
+              child: SizedBox(
+                  width: 260,
+                  child: Image(image: ImageString.apniJaggahSplash))),
         ],
       ),
     );
