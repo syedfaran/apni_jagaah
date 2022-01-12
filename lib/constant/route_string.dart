@@ -10,4 +10,6 @@ class RouteString{
   static const filter = '/filter';
   static const review = '/review';
   static const inquiry = '/inquiry';
+  static const property = '/property';
+  static const password = '/password';
 }

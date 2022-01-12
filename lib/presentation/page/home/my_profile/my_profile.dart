@@ -101,6 +101,11 @@ class _MyProfileState extends State<MyProfile> {
                   title: 'Settings', iconData: Icons.settings, onTap: () {}),
               _divider,
               _ProfileListTile(
+                  title: 'Change Password', iconData: Icons.password, onTap: () {
+                Navigator.pushNamed(context, RouteString.password);
+              }),
+              _divider,
+              _ProfileListTile(
                   title: AppString.signOut,
                   iconData: Icons.logout,
                   onTap: () {}),

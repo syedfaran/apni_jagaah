@@ -15,6 +15,11 @@ class FindHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedCrossFade(
+      layoutBuilder: (first,firstKey,second,secondKey)=>Stack(
+        children: [
+          first,second
+        ],
+      ),
       duration: _duration,
       firstChild: const MapSample(),
       secondChild: const Listing(),

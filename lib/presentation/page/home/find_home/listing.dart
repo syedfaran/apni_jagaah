@@ -12,21 +12,32 @@ class Listing extends StatelessWidget {
     final _decoration = BoxDecoration(
       borderRadius: BorderRadius.circular(25.0),
     );
-    return Center(
-      child: AspectRatio(
-        aspectRatio: 3.5 / 5.3,
-        child: ListView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 13),
-            itemCount: 3,
-            itemBuilder: (context, index) => Card(
+    return ListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 13),
+        itemCount: 3,
+        itemBuilder: (context, index) => Card(
               child: InkWell(
-                onTap: (){
+                onTap: () {
                   Navigator.pushNamed(context, RouteString.detailPage);
                 },
                 splashColor: Colors.teal[200],
                 child: Column(
                   children: [
-                    const Image(image: ImageString.place,),
+                    Stack(
+                      children:  [
+                        const  Image(image: ImageString.place),
+                        Card(
+                          color: AppColor.blackColor.withOpacity(0.5),
+                          child:const SimpleText(
+                            'Updated 9 days ago',
+                            color: AppColor.whiteColor,
+                            fontSize: 12,
+                            horizontal: 4,
+                            vertical: 4,
+                          ),
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 15),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -51,8 +62,9 @@ class Listing extends StatelessWidget {
                           ),
                           const SizedBox(height: 15.0),
                           const SimpleText(
-                              '405 3rd Ave Ne, Glenwood, MN 56334',
-                              fontSize: 14,),
+                            '405 3rd Ave Ne, Glenwood, MN 56334',
+                            fontSize: 14,
+                          ),
                           const SizedBox(height: 10),
                         ],
                       ),
@@ -60,8 +72,6 @@ class Listing extends StatelessWidget {
                   ],
                 ),
               ),
-            )),
-      ),
-    );
+            ));
   }
 }

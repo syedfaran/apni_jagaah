@@ -31,15 +31,12 @@ class _MapSampleState extends State<MapSample> {
       controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
     }
 
-    return AspectRatio(
-      aspectRatio: 3.5 / 5.3,
-      child: GoogleMap(
-        mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
-      ),
+    return GoogleMap(
+      mapType: MapType.normal,
+      initialCameraPosition: _kGooglePlex,
+      onMapCreated: (GoogleMapController controller) {
+        _controller.complete(controller);
+      },
     );
   }
 }

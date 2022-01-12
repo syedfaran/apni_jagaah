@@ -86,6 +86,17 @@ class AppString {
   static const searchFilter = 'Search Filter';
   static const manageReview = 'Manage Reviews';
   static const manageInquiry = 'Manage Inquiries';
+  static const totalProperties = 'Total Properties';
+  static const totalProjects = 'Total Projects';
+  static const totalInquiries = 'Total Inquiries';
+  static const totalReviews = 'Total Reviews';
+  static const manageProperty = 'Manage Property';
+  static const classification = 'Classification';
+  static const name = 'Name';
+  static const active = 'Active';
+  static const inactive = 'Inactive';
+  static const selectStatus = 'Select Status';
+  static const changePassword = 'Change Password';
   //datatable
   static const recentActivity = 'Recent Activity';
   static const lastUpdated = 'Last Updated';
