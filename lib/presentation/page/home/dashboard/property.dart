@@ -34,7 +34,7 @@ class _PropertyState extends State<Property> {
   static Future<void> delay() async {
     await Future.delayed(const Duration(milliseconds: 800));
   }
-  bool showList = true;
+  bool showList = false;
 
   @override
   Widget build(BuildContext context) {
