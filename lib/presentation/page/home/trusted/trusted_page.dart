@@ -1,5 +1,7 @@
 import 'package:apni_jagaah/constant/image_string.dart';
+import 'package:apni_jagaah/presentation/page/home/find_home/listing.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
+import 'package:apni_jagaah/presentation/widgets/simple_appbar.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
 import 'package:flutter/material.dart';
 
@@ -16,17 +18,45 @@ class TrustedPage extends StatelessWidget {
       ),
       itemBuilder: (BuildContext context, int index) {
         return Column(
-          children:const  [
-            CircleAvatar(
-              backgroundColor: AppColor.whiteColor,
-              backgroundImage: ImageString.homeAvatar,
-              maxRadius: 45,
+          children: [
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const _TempListing()));
+              },
+              child: const CircleAvatar(
+                backgroundColor: AppColor.whiteColor,
+                backgroundImage: ImageString.homeAvatar,
+                maxRadius: 45,
+              ),
             ),
-            SimpleText('Gawar',enumText: EnumText.extraBold),
-            SimpleText('2 months ago',fontSize: 16,),
+            const SimpleText('Gawar', enumText: EnumText.extraBold),
+            const SimpleText(
+              '2 months ago',
+              fontSize: 16,
+            ),
           ],
         );
       },
+    );
+  }
+}
+
+class _TempListing extends StatefulWidget {
+  const _TempListing({Key? key}) : super(key: key);
+
+  @override
+  _TempListingState createState() => _TempListingState();
+}
+
+class _TempListingState extends State<_TempListing> {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      appBar: SimpleAppbar(title: 'Listing'),
+      body: Listing(),
     );
   }
 }

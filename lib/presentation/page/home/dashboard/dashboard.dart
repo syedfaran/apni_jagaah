@@ -28,8 +28,8 @@ class Dashboard extends StatelessWidget {
      // itemCount: colorList.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 20,
         childAspectRatio: 3 / 2,
       ),
       children:const  [

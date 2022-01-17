@@ -48,6 +48,7 @@ dependencies:
   geolocator: ^8.0.1
   lottie: ^1.2.1
   photo_view: ^0.13.0
+  dropdown_search: ^2.0.1
 
 dev_dependencies:
   flutter_test:

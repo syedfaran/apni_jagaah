@@ -1,10 +1,10 @@
 import 'package:apni_jagaah/constant/route_string.dart';
 import 'package:apni_jagaah/presentation/page/home/dashboard/add_property/add_property.dart';
-import 'package:apni_jagaah/presentation/page/home/dashboard/property.dart';
+import 'package:apni_jagaah/presentation/page/home/dashboard/manage_property.dart';
 import 'package:apni_jagaah/presentation/page/home/find_home/detail_page.dart';
 import 'package:apni_jagaah/presentation/page/home/find_home/filter.dart';
 import 'package:apni_jagaah/presentation/page/home/home.dart';
-import 'package:apni_jagaah/presentation/page/home/dashboard/inquiry.dart';
+import 'package:apni_jagaah/presentation/page/home/dashboard/manage_inquiry.dart';
 import 'package:apni_jagaah/presentation/page/home/my_profile/change_password.dart';
 import 'package:apni_jagaah/presentation/page/home/my_profile/profile.dart';
 import 'package:apni_jagaah/presentation/page/home/dashboard/review.dart';
@@ -23,7 +23,7 @@ class RouteGenerator {
     switch (settings.name) {
       case RouteString.initialPage:
         return MaterialPageRoute(builder: (_) => const SplashPage());
-        return MaterialPageRoute(builder: (_) => const Inquiry());
+        return MaterialPageRoute(builder: (_) => const Profile());
       case RouteString.homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
       case RouteString.detailPage:
@@ -39,7 +39,7 @@ class RouteGenerator {
       case RouteString.filter:
         return MaterialPageRoute(builder: (_)=>const Filter());
       case RouteString.inquiry:
-        return MaterialPageRoute(builder: (_)=>const Inquiry());
+        return MaterialPageRoute(builder: (_)=>const ManageInquiry());
       case RouteString.review:
         return MaterialPageRoute(builder: (_)=>const Review());
       case RouteString.property:

@@ -50,39 +50,45 @@ class _PropertyState extends State<Property> {
         ],
       ),
       body: Column(
-        // padding: const EdgeInsets.symmetric(horizontal: 16),
         children: [
-          DecoratedDropDown(
-            valueNotifier: _categoryNotifier,
-            list: categoryList,
-            hintText: 'select Category',
-          ),
-          ValueListenableBuilder<String>(
-              valueListenable: _categoryNotifier,
-              builder: (context, value, child) {
-                if (value.isEmpty) return const SizedBox.shrink();
-                return DecoratedDropDown(
-                  valueNotifier: _statusNotifier,
-                  list: statusList,
-                  hintText: AppString.selectStatus,
-                );
-              }),
-          ElevatedButton(
-              onPressed: () {
-                if (_categoryNotifier.value.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('kindly select category'),
-                    behavior: SnackBarBehavior.floating,
-                  ));
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Column(
+              children: [
+                DecoratedDropDown(
+                  valueNotifier: _categoryNotifier,
+                  list: categoryList,
+                  hintText: 'select Category',
+                ),
+                ValueListenableBuilder<String>(
+                    valueListenable: _categoryNotifier,
+                    builder: (context, value, child) {
+                      if (value.isEmpty) return const SizedBox.shrink();
+                      return DecoratedDropDown(
+                        valueNotifier: _statusNotifier,
+                        list: statusList,
+                        hintText: AppString.selectStatus,
+                      );
+                    }),
+                ElevatedButton(
+                    onPressed: () {
+                      if (_categoryNotifier.value.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('kindly select category'),
+                          behavior: SnackBarBehavior.floating,
+                        ));
 
-                }else{
-                  setState(() {
-                    showList = true;
-                  });
-                }
-              },
-              child:
-                  const SimpleText('Search', color: AppColor.whiteColor)),
+                      }else{
+                        setState(() {
+                          showList = true;
+                        });
+                      }
+                    },
+                    child:
+                        const SimpleText('search', color: AppColor.whiteColor)),
+              ],
+            ),
+          ),
           showList?Expanded(
               child: FutureBuilder<void>(
             future: delay(),

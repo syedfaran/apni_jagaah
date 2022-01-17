@@ -1,4 +1,5 @@
 import 'package:apni_jagaah/constant/app_string.dart';
+import 'package:apni_jagaah/constant/image_string.dart';
 import 'package:apni_jagaah/constant/route_string.dart';
 import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:apni_jagaah/presentation/widgets/decorated_drop_down.dart';
@@ -21,12 +22,63 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    const double globalSize = 300;
     return SafeArea(
         child: Scaffold(
       appBar: const SimpleAppbar(title: AppString.profile),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25),
         children: [
+          //todo later convert it to SizedBox
+          SizedBox(
+            height: globalSize,
+            //color: Colors.amber,
+            child: Stack(
+              children: [
+                Container(
+                  height: globalSize / 2 + 50,
+                  alignment: Alignment.bottomRight,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(12.0),
+                        topRight: Radius.circular(12.0)),
+                    color: Colors.indigo,
+                    image: DecorationImage(
+                        image: AssetImage('assets/background.jpg'), fit: BoxFit.cover),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: SizedBox.square(
+                        dimension: 45,
+                        child: Card(child: Icon(Icons.camera_alt))),
+                  ),
+                ),
+                const Positioned.fill(
+                    top: globalSize / 2 -50,
+                    child: Align(
+                      child: CircleAvatar(
+                        radius: 65,
+                        backgroundColor: AppColor.mainColor,
+                        child: CircleAvatar(
+                          radius: 60,
+                          backgroundImage: AssetImage('assets/avatar.png'),
+                          child: Align(
+                            alignment: Alignment.bottomRight,
+
+                            child: SizedBox.square(
+                                dimension: 40,
+                                child: Card(
+                                    child: Icon(
+                                  Icons.camera_alt,
+                                  color: Colors.black,
+                                ))),
+                          ),
+                        ),
+                      ),
+                    )),
+              ],
+            ),
+          ),
           /////DropDownButton/////
           DecoratedDropDown(
               hintText: AppString.selectAccountType,
@@ -62,33 +114,33 @@ class _ProfileState extends State<Profile> {
             labelText: AppString.confirmPassword,
           ),
           /////////////
-          Row(
-            children: [
-              Expanded(
-                child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      fixedSize: const Size(0, 45),
-                      side: const BorderSide(
-                          width: 1.0, color: AppColor.mainColor),
-                    ),
-                    onPressed: () {},
-                    child: const SimpleText(AppString.upLoadAvatar,
-                        color: AppColor.mainColor)),
-              ),
-              const SizedBox(width: 16.0),
-              Expanded(
-                child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      fixedSize: const Size(0, 45),
-                      side: const BorderSide(
-                          width: 1.0, color: AppColor.mainColor),
-                    ),
-                    onPressed: () {},
-                    child: const SimpleText(AppString.upLoadCover,
-                        color: AppColor.mainColor)),
-              ),
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     Expanded(
+          //       child: OutlinedButton(
+          //           style: OutlinedButton.styleFrom(
+          //             fixedSize: const Size(0, 45),
+          //             side: const BorderSide(
+          //                 width: 1.0, color: AppColor.mainColor),
+          //           ),
+          //           onPressed: () {},
+          //           child: const SimpleText(AppString.upLoadAvatar,
+          //               color: AppColor.mainColor)),
+          //     ),
+          //     const SizedBox(width: 16.0),
+          //     Expanded(
+          //       child: OutlinedButton(
+          //           style: OutlinedButton.styleFrom(
+          //             fixedSize: const Size(0, 45),
+          //             side: const BorderSide(
+          //                 width: 1.0, color: AppColor.mainColor),
+          //           ),
+          //           onPressed: () {},
+          //           child: const SimpleText(AppString.upLoadCover,
+          //               color: AppColor.mainColor)),
+          //     ),
+          //   ],
+          // ),
           /////////////
           const SizedBox(height: 10),
           ElevatedButton(

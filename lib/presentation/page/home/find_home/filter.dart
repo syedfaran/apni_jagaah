@@ -3,6 +3,7 @@ import 'package:apni_jagaah/presentation/theme/app_color.dart';
 import 'package:apni_jagaah/presentation/widgets/decorated_drop_down.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_appbar.dart';
 import 'package:apni_jagaah/presentation/widgets/simple_text.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 
 class Filter extends StatefulWidget {
@@ -26,35 +27,46 @@ class _FilterState extends State<Filter> {
   static const divider = Divider(
     color: AppColor.blackColor,
   );
+  static const EnumText fontWeight = EnumText.extraBold;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const SimpleAppbar(title: AppString.searchFilter),
       body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 26.0),
         children: [
-          const SimpleText(AppString.purpose),
+          const SimpleText(AppString.purpose, enumText: fontWeight),
           _WrapLayout(
               optionList: _FilterModel.purposeList,
               selectedListed: selectedPurposeList),
           const SizedBox(height: 15),
-          const SimpleText(AppString.typeR),
+          const SimpleText(AppString.typeR, enumText: fontWeight),
           _WrapLayout(
               optionList: _FilterModel.typeList,
               selectedListed: selectedTypeList),
-          divider,
           const SizedBox(height: 15),
-          const SimpleText(AppString.city),
+          const SimpleText(AppString.city, enumText: fontWeight),
           DecoratedDropDown(
               list: const ['Karachi', 'Sindh', 'Lahore'],
               valueNotifier: cityNotifier,
               hintText: 'Select City'),
-          DecoratedDropDown(list: const [
-            'Defence Phase 8',
-            'Defence Phase 4',
-            'Defence Phase 5'
-          ], valueNotifier: locationNotifier, hintText: 'Select Location'),
+          const SizedBox(height: 15),
+          const SimpleText(AppString.location, enumText: fontWeight),
+          const SizedBox(height: 10),
+          DropdownSearch<String>.multiSelection(
+              mode: Mode.BOTTOM_SHEET,
+              items: const [
+                "Nipa",
+                "Defence Phase 1",
+                "Gulshan",
+                'UAE',
+                'Arabia',
+              ],
+              showSearchBox: true,
+              showSelectedItems: true,
+              onChanged: print,
+              selectedItems: const ["Brazil"]),
         ],
       ),
     );
@@ -126,20 +138,20 @@ class _WrapLayoutState extends State<_WrapLayout> {
               .values
               .toList(),
         ),
-        InputDecorator(
-          isEmpty: widget.selectedListed.isEmpty,
-          decoration: const InputDecoration(
-            hintText: 'Noting is Seleted',
-            isDense: false,
-            border: OutlineInputBorder(),
-            focusedBorder:
-                OutlineInputBorder(borderSide: BorderSide(color: Colors.teal)),
-          ),
-          child: Wrap(
-            spacing: 10,
-            children: widget.selectedListed.map((e) => SimpleText(e)).toList(),
-          ),
-        ),
+        // InputDecorator(
+        //   isEmpty: widget.selectedListed.isEmpty,
+        //   decoration: const InputDecoration(
+        //     hintText: 'Noting is Seleted',
+        //     isDense: false,
+        //     border: OutlineInputBorder(),
+        //     focusedBorder:
+        //         OutlineInputBorder(borderSide: BorderSide(color: Colors.teal)),
+        //   ),
+        //   child: Wrap(
+        //     spacing: 10,
+        //     children: widget.selectedListed.map((e) => SimpleText(e)).toList(),
+        //   ),
+        // ),
       ],
     );
   }
