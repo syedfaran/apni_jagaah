@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ValueNotifier<int> indexNotifier = ValueNotifier(0);
+  final ValueNotifier<int> indexNotifier = ValueNotifier(1);
 
 
   @override

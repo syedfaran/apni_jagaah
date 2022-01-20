@@ -23,11 +23,12 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     const double globalSize = 300;
+    const EdgeInsets globalPadding =  EdgeInsets.symmetric(horizontal: 25.0, vertical: 25);
     return SafeArea(
         child: Scaffold(
       appBar: const SimpleAppbar(title: AppString.profile),
       body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25),
+        padding: globalPadding,
         children: [
           //todo later convert it to SizedBox
           SizedBox(
@@ -147,7 +148,7 @@ class _ProfileState extends State<Profile> {
               style: ElevatedButton.styleFrom(fixedSize: const Size(0, 45)),
               onPressed: () {},
               child: const SimpleText(AppString.submit,
-                  color: AppColor.whiteColor)),
+                  color: AppColor.whiteColor,)),
         ],
       ),
     ));
