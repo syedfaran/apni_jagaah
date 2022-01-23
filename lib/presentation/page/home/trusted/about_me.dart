@@ -49,8 +49,8 @@ class AboutMe extends StatelessWidget {
         ),
         const SimpleText('PARTNER AGENT', textAlign: TextAlign.center),
         const SimpleText('Kem Smith', textAlign: TextAlign.center),
-        Wrap(
-          alignment: WrapAlignment.center,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SimpleText('5.0'),
             const Icon(Icons.star, color: Colors.amber),
@@ -102,9 +102,9 @@ class _ListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
+    return ListTile(contentPadding: EdgeInsets.zero,
       title: SimpleText(title, enumText: EnumText.bold),
-      subtitle: SimpleText(subtitle),
+      subtitle: SimpleText(subtitle,fontSize: 16),
     );
   }
 }
