@@ -23,7 +23,6 @@ class _FindHomeState extends State<FindHome> {
   @override
   void initState() {
     _propertiesBloc.add(const GetProperty());
-
     super.initState();
   }
   @override

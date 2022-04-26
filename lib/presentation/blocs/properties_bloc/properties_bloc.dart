@@ -17,11 +17,10 @@ class PropertiesBloc extends Bloc<PropertiesEvent, PropertiesState> {
   PropertiesBloc(this._repository) : super(PropertiesInitial()) {
     on<GetProperty>((event, emit) async {
       emit(PropertiesLoading());
-      final Either<Failure, List<Properties>> eitherResponse =
-          await _repository.getProperties();
-      eitherResponse.fold(
+      final Either<Failure, List<Properties>> eitherResponse = await _repository.getProperties();
+      emit(eitherResponse.fold(
           (failure) => PropertiesError(message: _mapFailureToMessage(failure)),
-          (properties) => PropertiesLoaded(properties: properties));
+          (properties) => PropertiesLoaded(properties: properties)));
     });
   }
 }

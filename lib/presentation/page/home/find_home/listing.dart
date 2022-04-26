@@ -21,10 +21,10 @@ class Listing extends StatelessWidget {
         bloc: propertiesBloc,
         builder: (context, state) {
           if (state is PropertiesInitial) return const SizedBox.shrink();
+          if (state is PropertiesLoading) return const Center(child:  SimpleText('Loading'));
           if (state is PropertiesLoaded) {
             return _LoadedListing(properties: state.properties);
           }
-          if (state is PropertiesInitial) return const SizedBox.shrink();
           if (state is PropertiesError) return SimpleText(state.message);
           return const Center(child:  SimpleText('SomeThing went Wrong'));
         });
