@@ -85,7 +85,7 @@ class Properties {
     }
     propertyType = json['property-type'].cast<int>();
     if (json['property-location'] != null) {
-      propertyLocation = <Null>[];
+      propertyLocation = <dynamic>[];
       json['property-location'].forEach((v) {
         propertyLocation!.add(v);
       });
@@ -240,7 +240,7 @@ class PropertyMeta {
     rEALHOMESPropertyYearBuilt = json['REAL_HOMES_property_year_built'];
     rEALHOMESFeatured = json['REAL_HOMES_featured'];
     if (json['REAL_HOMES_additional_details_list'] != null) {
-      rEALHOMESAdditionalDetailsList = <Null>[];
+      rEALHOMESAdditionalDetailsList = <dynamic>[];
       json['REAL_HOMES_additional_details_list'].forEach((v) {
         rEALHOMESAdditionalDetailsList!.add(v);
       });
@@ -270,7 +270,7 @@ class PropertyMeta {
       });
     }
     if (json['inspiry_video_group'] != null) {
-      inspiryVideoGroup = <Null>[];
+      inspiryVideoGroup = <dynamic>[];
       json['inspiry_video_group'].forEach((v) {
         inspiryVideoGroup!.add(v);
       });
@@ -278,15 +278,16 @@ class PropertyMeta {
     rEALHOMES360VirtualTour = json['REAL_HOMES_360_virtual_tour'];
     rEALHOMESTourVideoUrl = json['REAL_HOMES_tour_video_url'];
     if (json['REAL_HOMES_tour_video_image'] != null) {
-      rEALHOMESTourVideoImage = <Null>[];
+      rEALHOMESTourVideoImage = <dynamic>[];
       json['REAL_HOMES_tour_video_image'].forEach((v) {
         rEALHOMESTourVideoImage!.add(v);
       });
     }
     rEALHOMESAgentDisplayOption = json['REAL_HOMES_agent_display_option'];
     if (json['REAL_HOMES_agents'] != null) {
-      rEALHOMESAgents = <Null>[];
+      rEALHOMESAgents = <dynamic>[];
       json['REAL_HOMES_agents'].forEach((v) {
+        //todo uncomment
         rEALHOMESAgents!.add(v);
       });
     }
@@ -300,7 +301,7 @@ class PropertyMeta {
     inspiryPropertyTax = json['inspiry_property_tax'];
     inspiryAdditionalFee = json['inspiry_additional_fee'];
     if (json['REAL_HOMES_attachments'] != null) {
-      rEALHOMESAttachments = <Null>[];
+      rEALHOMESAttachments = <dynamic>[];
       json['REAL_HOMES_attachments'].forEach((v) {
         rEALHOMESAttachments!.add(v);
       });
@@ -312,13 +313,13 @@ class PropertyMeta {
     inspiryMessageToReviewer = json['inspiry_message_to_reviewer'];
     rEALHOMESAddInSlider = json['REAL_HOMES_add_in_slider'];
     if (json['REAL_HOMES_slider_image'] != null) {
-      rEALHOMESSliderImage = <Null>[];
+      rEALHOMESSliderImage = <dynamic>[];
       json['REAL_HOMES_slider_image'].forEach((v) {
         rEALHOMESSliderImage!.add(v);
       });
     }
     if (json['REAL_HOMES_page_banner_image'] != null) {
-      rEALHOMESPageBannerImage = <Null>[];
+      rEALHOMESPageBannerImage = <dynamic>[];
       json['REAL_HOMES_page_banner_image'].forEach((v) {
         rEALHOMESPageBannerImage!.add(v);
       });

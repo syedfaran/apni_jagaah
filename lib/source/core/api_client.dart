@@ -10,6 +10,7 @@ class ApiClient {
   ApiClient(this._client);
 
   dynamic get(Uri uri, {Map<dynamic, dynamic>? params}) async {
+    print(uri);
     final response = await _client.get(
       uri,
       headers: {

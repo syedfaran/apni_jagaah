@@ -7,6 +7,7 @@ import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
 
 import 'geo_location.dart';
+import 'presentation/blocs/properties_bloc/properties_bloc.dart';
 
 
 
@@ -18,5 +19,6 @@ Future<void> init()async{
   sl.registerLazySingleton<ApiClient>(() => ApiClient(sl()));
   sl.registerLazySingleton<RemoteDataSource>(() => RemoteDataSourceImpl(sl()));
   sl.registerLazySingleton<JsonPlaceHolderRepository>(() => JsonPlaceHolderRepository(sl()));
-  //sl.registerFactory<TempBloc>(() => TempBloc(sl()));
+  sl.registerFactory<TempBloc>(() => TempBloc(sl()));
+  sl.registerFactory<PropertiesBloc>(() => PropertiesBloc(sl()));
 }
