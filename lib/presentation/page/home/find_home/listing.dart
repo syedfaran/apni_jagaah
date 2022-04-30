@@ -21,12 +21,13 @@ class Listing extends StatelessWidget {
         bloc: propertiesBloc,
         builder: (context, state) {
           if (state is PropertiesInitial) return const SizedBox.shrink();
-          if (state is PropertiesLoading) return const Center(child:  SimpleText('Loading'));
+          if (state is PropertiesLoading)
+            return const Center(child: SimpleText('Loading'));
           if (state is PropertiesLoaded) {
             return _LoadedListing(properties: state.properties);
           }
           if (state is PropertiesError) return SimpleText(state.message);
-          return const Center(child:  SimpleText('SomeThing went Wrong'));
+          return const Center(child: SimpleText('SomeThing went Wrong'));
         });
     return ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 13),
@@ -112,11 +113,22 @@ class _LoadedListing extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        const Image(image: ImageString.place),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 200,
+                          child: Image.network(
+                              'https://apnijagaah.com/wp-content/uploads/' +
+                                  properties[index]
+                                      .propertyMeta!
+                                      .rEALHOMESPropertyImages!
+                                      .first
+                                      .file!,
+                              fit: BoxFit.cover),
+                        ),
                         Card(
                           color: AppColor.blackColor.withOpacity(0.5),
-                          child: const SimpleText(
-                            'Updated 9 days ago',
+                          child: SimpleText(
+                            'Updated ${properties[index].modified!.split('T').first}',
                             color: AppColor.whiteColor,
                             fontSize: 12,
                             horizontal: 4,
@@ -133,7 +145,11 @@ class _LoadedListing extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              const SimpleText('\$1,391,900',
+                              SimpleText(
+                                  'Rs ' +
+                                      properties[index]
+                                          .propertyMeta!
+                                          .rEALHOMESPropertyPrice!,
                                   enumText: EnumText.semiBold),
                               const Spacer(flex: 6),
                               Icon(Icons.favorite_outline,
@@ -143,13 +159,20 @@ class _LoadedListing extends StatelessWidget {
                                   size: 30, color: Colors.grey[600])
                             ],
                           ),
-                          const SimpleText(
-                            '4 beds 2 Bath 1040Sq.Ft',
-                            fontSize: 14,
-                          ),
+                          // const SimpleText(
+                          //   '4 beds 2 Bath 1040Sq.Ft',
+                          //   fontSize: 14,
+                          // ),
+                          _BedBath(
+                              bed: properties[index]
+                                  .propertyMeta!
+                                  .rEALHOMESPropertyBedrooms,
+                              bath: properties[index]
+                                  .propertyMeta!
+                                  .rEALHOMESPropertyBathrooms),
                           const SizedBox(height: 15.0),
-                          const SimpleText(
-                            '405 3rd Ave Ne, Glenwood, MN 56334',
+                          SimpleText(
+                            '${properties[index].title!.rendered}',
                             fontSize: 14,
                           ),
                           const SizedBox(height: 10),
@@ -160,5 +183,26 @@ class _LoadedListing extends StatelessWidget {
                 ),
               ),
             ));
+  }
+}
+
+class _BedBath extends StatelessWidget {
+  final String? bed;
+  final String? bath;
+
+  const _BedBath({Key? key, this.bath, this.bed}) : super(key: key);
+
+  String _string() {
+    String string = '1040sq.Ft';
+
+    return '';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SimpleText(
+        (bed!.isEmpty || bed == null ? 'N/A beds' : '$bed bed') +
+            (bath!.isEmpty || bath == null ? ' N/A bath' : ' $bath bath'),
+        fontSize: 14);
   }
 }

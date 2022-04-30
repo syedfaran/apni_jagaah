@@ -35,7 +35,7 @@ class _FindHomeState extends State<FindHome> {
       ),
 
       duration: FindHome._duration,
-      firstChild: const MapSample(),
+      firstChild:  MapSampleParam(propertiesBloc: _propertiesBloc),
       secondChild:  Listing(propertiesBloc: _propertiesBloc),
       crossFadeState: widget._toggle
           ? CrossFadeState.showFirst
