@@ -1,4 +1,4 @@
-class Properties {
+class   Properties {
   int? id;
   String? date;
   String? dateGmt;

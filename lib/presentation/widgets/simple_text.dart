@@ -34,6 +34,7 @@ class SimpleText extends StatelessWidget {
         maxLines: maxLine,
         style: Theme.of(context).textTheme.bodyText1!.copyWith(
           height: height,
+            overflow: TextOverflow.fade,
             decoration: decoration,
             color: color,
             fontSize: fontSize,
