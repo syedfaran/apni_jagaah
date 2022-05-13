@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                           : SimpleText(EnumAppBar.values
                           .elementAt(value).name + (EnumAppBar.values[value] == EnumAppBar.Trusted?' Builder':''),
                           enumText: EnumText.light, color: Colors.black87),
-                      backgroundColor: AppColor.whiteColor,
+                      backgroundColor: AppColor.white,
                       flexibleSpace: appbarDecider(value)
                           ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                 bottomNavigationBar: Theme(
                   data: Theme.of(context).copyWith(
                     // sets the background color of the `BottomNavigationBar`
-                    canvasColor: AppColor.whiteColor,
+                    canvasColor: AppColor.white,
                   ),
                   child: BottomNavigationBar(
                     items: const <BottomNavigationBarItem>[

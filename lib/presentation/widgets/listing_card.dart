@@ -23,7 +23,7 @@ class ListingCard extends StatelessWidget {
                   color: AppColor.blackColor.withOpacity(0.5),
                   child:const SimpleText(
                     'Updated 9 days ago',
-                    color: AppColor.whiteColor,
+                    color: AppColor.white,
                     fontSize: 12,
                     horizontal: 4,
                     vertical: 4,

@@ -14,4 +14,5 @@ class ImageString {
   static const ImageProvider phone = AssetImage('assets/phone.png');
   static const ImageProvider person = AssetImage('assets/person.png');
   static const ImageProvider property = AssetImage('assets/property.png');
+  static const ImageProvider home = AssetImage('assets/home.png');
 }

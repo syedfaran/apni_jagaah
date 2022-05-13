@@ -30,7 +30,7 @@ class TrustedPage extends StatelessWidget {
                         builder: (context) => const _TempListing()));
               },
               child: const CircleAvatar(
-                backgroundColor: AppColor.whiteColor,
+                backgroundColor: AppColor.white,
                 backgroundImage: ImageString.homeAvatar,
                 maxRadius: 45,
               ),
@@ -66,7 +66,7 @@ class _TempListingState extends State<_TempListing> with SingleTickerProviderSta
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColor.whiteColor,
+        backgroundColor: AppColor.white,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: AppColor.blackColor),
           onPressed: () {

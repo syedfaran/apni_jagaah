@@ -22,7 +22,7 @@ class SimpleAppbar extends StatelessWidget implements PreferredSizeWidget {
               icon: const  Icon(Icons.arrow_back_ios, color: AppColor.mainColor))
           : null,
       title: title != null ? SimpleText(title!) : null,
-      backgroundColor: AppColor.whiteColor,
+      backgroundColor: AppColor.white,
     );
   }
 

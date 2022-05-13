@@ -90,7 +90,7 @@ class _PhotoViewPPState extends State<PhotoViewPP> {
             initialScale: PhotoViewComputedScale.contained,
           );
         },
-        backgroundDecoration: const BoxDecoration(color: AppColor.whiteColor),
+        backgroundDecoration: const BoxDecoration(color: AppColor.white),
         itemCount: widget.imageList.length,
         pageController: _controller,
         onPageChanged: (value){
