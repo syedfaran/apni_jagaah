@@ -21,8 +21,9 @@ class Listing extends StatelessWidget {
         bloc: propertiesBloc,
         builder: (context, state) {
           if (state is PropertiesInitial) return const SizedBox.shrink();
-          if (state is PropertiesLoading)
+          if (state is PropertiesLoading) {
             return const Center(child: SimpleText('Loading'));
+          }
           if (state is PropertiesLoaded) {
             return _LoadedListing(properties: state.properties);
           }
@@ -47,7 +48,7 @@ class Listing extends StatelessWidget {
                           color: AppColor.blackColor.withOpacity(0.5),
                           child: const SimpleText(
                             'Updated 9 days ago',
-                            color: AppColor.whiteColor,
+                            color: AppColor.white,
                             fontSize: 12,
                             horizontal: 4,
                             vertical: 4,
@@ -129,7 +130,7 @@ class _LoadedListing extends StatelessWidget {
                           color: AppColor.blackColor.withOpacity(0.5),
                           child: SimpleText(
                             'Updated ${properties[index].modified!.split('T').first}',
-                            color: AppColor.whiteColor,
+                            color: AppColor.white,
                             fontSize: 12,
                             horizontal: 4,
                             vertical: 4,

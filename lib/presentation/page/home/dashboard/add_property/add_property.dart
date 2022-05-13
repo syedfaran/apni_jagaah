@@ -136,7 +136,7 @@ class _AddPropertyState extends State<AddProperty> {
             hintText: AppString.enterBuildingAge,
           ),
           ElevatedButton(onPressed: null,
-              child: const SimpleText(AppString.submit,color: AppColor.whiteColor),
+              child: const SimpleText(AppString.submit,color: AppColor.white),
               style: ElevatedButton.styleFrom(fixedSize: const Size(0, 45))),
         ],
       ),

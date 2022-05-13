@@ -85,7 +85,7 @@ class _PropertyState extends State<Property> {
                       }
                     },
                     child:
-                        const SimpleText('search', color: AppColor.whiteColor)),
+                        const SimpleText('search', color: AppColor.white)),
               ],
             ),
           ),

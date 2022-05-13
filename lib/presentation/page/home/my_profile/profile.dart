@@ -148,7 +148,7 @@ class _ProfileState extends State<Profile> {
               style: ElevatedButton.styleFrom(fixedSize: const Size(0, 45)),
               onPressed: () {},
               child: const SimpleText(AppString.submit,
-                  color: AppColor.whiteColor,)),
+                  color: AppColor.white,)),
         ],
       ),
     ));

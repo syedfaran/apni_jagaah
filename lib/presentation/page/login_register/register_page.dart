@@ -119,7 +119,7 @@ class _RegisterPageState extends State<RegisterPage> {
               style: ElevatedButton.styleFrom(fixedSize: const Size(0, 45)),
               onPressed: () {},
               child: const SimpleText(AppString.register,
-                  color: AppColor.whiteColor)),
+                  color: AppColor.white)),
         ],
       ),
     ));

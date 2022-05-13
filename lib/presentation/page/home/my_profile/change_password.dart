@@ -28,7 +28,7 @@ class ChangePassword extends StatelessWidget {
               hintText: 'Enter Confirm Password',
 
             ),
-            ElevatedButton(onPressed: (){}, child: SimpleText(AppString.submit,color: AppColor.whiteColor)),
+            ElevatedButton(onPressed: (){}, child: SimpleText(AppString.submit,color: AppColor.white)),
           ],
         ),
       ),

@@ -104,7 +104,7 @@ class _TempListingState extends State<_TempListing>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColor.whiteColor,
+        backgroundColor: AppColor.white,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: AppColor.blackColor),
           onPressed: () {

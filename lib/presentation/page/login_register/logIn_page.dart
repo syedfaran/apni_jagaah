@@ -64,7 +64,7 @@ class LogInPage extends StatelessWidget {
                   onPressed: () {},
                   child: const SimpleText(
                     'Login',
-                    color: AppColor.whiteColor,
+                    color: AppColor.white,
                   )),
             ),
           ],

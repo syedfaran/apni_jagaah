@@ -43,7 +43,7 @@ class _MyProfileState extends State<MyProfile> {
                         },
                         child: const SimpleText(
                           AppString.join,
-                          color: AppColor.whiteColor,
+                          color: AppColor.white,
                           enumText: EnumText.semiBold,
                           fontSize: 16.0,
                         )),
